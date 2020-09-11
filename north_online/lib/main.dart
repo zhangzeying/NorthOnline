@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:north_online/core/routers/router.dart';
 import 'core/constant/color_constant.dart';
-import 'ui/pages/main_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,11 +14,16 @@ class MyApp extends StatelessWidget {
       title: '北区在线',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        canvasColor: Colors.white,
         backgroundColor: Colors.white,
         primaryColor: ColorConstant.themeColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MainPage(),
+      debugShowCheckedModeBanner: false,
+      initialRoute: JARouter.initialRoute,
+      routes: JARouter.routes,
+      onGenerateRoute: JARouter.generateRoute,
+      onUnknownRoute: JARouter.unknownRoute,
     );
   }
 }
